@@ -42,14 +42,15 @@ def index():
 @app.route('/submit', methods=['POST'])
 def submit():
     if request.method == 'POST':
-        customer= request.form['customer']
-        dealer= request.form['dealer']
-        rating= request.form['rating']
-        comments= request.form['comments']
+        customer = request.form['customer']
+        dealer = request.form['dealer']
+        rating = request.form['rating']
+        comments = request.form['comments']
         #print(customer,dealer,rating,comments)
         if customer == '' or dealer == '':
-            return render_template('index.html',message='Please enter required fields')
+            return render_template('index.html', message='Please enter required fields')
         if db.session.query(Feedback).filter(Feedback.customer == customer).count() == 0:
+            data = Feedback(customer, dealer, rating, comments)
             db.session.add(data)
             db.session.commit()
             send_mail(customer, dealer, rating, comments)
@@ -60,6 +61,6 @@ def submit():
 
 
 if __name__ ==  '__main__':
-    app.debug = True
+    
     app.run()
 
