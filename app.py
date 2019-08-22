@@ -47,7 +47,7 @@ def submit():
         rating= request.form['rating']
         comments= request.form['comments']
         #print(customer,dealer,rating,comments)
-        if customer == '' or dealer == '':
+        if customer == '':
             return render_template('index.html',message='Please enter required fields')
         if db.session.query(Feedback).filter(Feedback.customer == customer).count() == 0:
             db.session.add(data)
