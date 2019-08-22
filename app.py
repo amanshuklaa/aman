@@ -49,7 +49,7 @@ def submit():
         #print(customer,dealer,rating,comments)
         if customer == '' or dealer == '':
             return render_template('index.html',message='Please enter required fields')
-        if db.session.query(Feedback).filter(Feedback.customer == customer).count() == 0:data = Feedback(customer, dealer, rating, comments)
+        if db.session.query(Feedback).filter(Feedback.customer == customer).count() == 0:
             db.session.add(data)
             db.session.commit()
             send_mail(customer, dealer, rating, comments)
