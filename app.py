@@ -38,7 +38,7 @@ def index():
     return render_template('index.html')
 
 
-@app.route('/submit', methods=['POST'])
+@app.route('/Submit', methods=['POST'])
 def submit():
     if request.method == 'POST':
         customer = request.form['customer']
