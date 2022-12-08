@@ -24,7 +24,7 @@ Bottleneck==1.2.1
 bpemb==0.2.12
 bs4==0.0.1
 bz2file==0.98
-certifi==2019.3.9
+certifi==2022.12.7
 cffi==1.12.3
 chardet==3.0.4
 ChatterBot==1.0.5
